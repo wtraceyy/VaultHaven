@@ -1,15 +1,18 @@
 package com.tracey.vaulthaven.ui.screens.transactions
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -38,8 +41,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -140,21 +145,166 @@ fun TransactionsScreen(navController: NavController){
                 modifier = Modifier
                     .padding(paddingValues)
                     .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
+                    .verticalScroll(rememberScrollState()),
+
             ) {
                 //card
                 Card(onClick = {},
-                    modifier = Modifier.fillMaxWidth().height(200.d),
+                    modifier = Modifier.fillMaxWidth().height(250.dp),
                     elevation = CardDefaults.elevatedCardElevation(5.dp),
-                    colors = CardDefaults.cardColors(Dblue)
+                    colors = CardDefaults.cardColors(Dblue),
+                    shape = RectangleShape
                 ) {
+                    Row {
+                        Image(
+                            painter = painterResource(R.drawable.hello),
+                            contentDescription = "shoe",
+                            modifier = Modifier.width(50.dp).height(50.dp)
+                                .padding(top = 5.dp),
+                        )
+                        Spacer(modifier = Modifier.width(5.dp))
+
+                        Column {
+                            Text(
+                                text = "Hi,",
+                                fontSize = 18.sp,
+                                modifier = Modifier.padding(start = 10.dp, top = 5.dp),
+                                color = Color.White
+
+                            )
+
+                            Spacer(modifier = Modifier.height(3.dp))
+
+                            Text(
+                                text = "Tracey",
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(start = 10.dp),
+                                color = Color.White
+
+                            )
+
+                        }
+
+                    }
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Column {
+                        Text(
+                            text = "Balance",
+                            fontSize = 18.sp,
+                            modifier = Modifier.padding(start = 10.dp, top = 5.dp),
+                            color = Color.White
+
+                        )
+
+                        Spacer(modifier = Modifier.height(3.dp))
+
+                        Text(
+                            text = "ksh.54378",
+                            fontSize = 25.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(start = 10.dp),
+                            color = Color.White
+
+                        )
+
+                    }
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                       horizontalArrangement = Arrangement.Center
+
+                    ) {
+                        Card(
+                            onClick = {},
+                            modifier = Modifier.width(170.dp).height(40.dp),
+                            elevation = CardDefaults.elevatedCardElevation(5.dp),
+                            colors = CardDefaults.cardColors(Bblue),
+
+
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(top = 10.dp, start = 10.dp)
+                            ) {
+                                Image(
+                                    painter = painterResource(R.drawable.plus),
+                                    contentDescription = "shoe",
+                                    modifier = Modifier.width(20.dp).height(20.dp).padding(top = 5.dp),
+                                )
+
+                                Spacer(modifier = Modifier.width(5.dp))
+
+
+
+                                Text(
+                                    text = "Add Money",
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black
+
+                                )
+
+
+
+                            }
+
+
+                        }
+                        Spacer(modifier = Modifier.width(15.dp))
+
+                        Card(
+                            onClick = {},
+                            modifier = Modifier.width(170.dp).height(40.dp),
+                            elevation = CardDefaults.elevatedCardElevation(5.dp),
+                            colors = CardDefaults.cardColors(Bblue),
+
+
+                            ) {
+                            Row(
+                                modifier = Modifier.padding(top = 10.dp, start = 10.dp)
+
+                            ) {
+                                Image(
+                                    painter = painterResource(R.drawable.arrow),
+                                    contentDescription = "shoe",
+                                    modifier = Modifier.width(25.dp).height(25.dp),
+                                )
+
+                                Spacer(modifier = Modifier.width(5.dp))
+
+
+
+                                Text(
+                                    text = "Send Money",
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black
+
+                                )
+
+
+
+                            }
+
+
+
+                        }
+
+
+
+                    }
+
+
 
                 }
 
 
                 Card(
                     onClick = {},
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().offset(y = (-40).dp),
+                    shape = RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp),
                     elevation = CardDefaults.elevatedCardElevation(5.dp),
                     //colors = CardDefaults.cardColors(Teal)
                     colors = CardDefaults.cardColors(Color.White)

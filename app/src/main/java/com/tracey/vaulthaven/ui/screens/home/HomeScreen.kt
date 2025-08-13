@@ -54,6 +54,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -485,7 +486,9 @@ fun HomeScreen(navController: NavController){
                                 modifier = Modifier.fillMaxSize(),
                                 elevation = CardDefaults.elevatedCardElevation(5.dp),
                                 //colors = CardDefaults.cardColors(Teal)
-                                colors = CardDefaults.cardColors(Color.White)
+                                colors = CardDefaults.cardColors(Color.White),
+                                shape = RectangleShape
+
                             ) {
                                 Row(
 
