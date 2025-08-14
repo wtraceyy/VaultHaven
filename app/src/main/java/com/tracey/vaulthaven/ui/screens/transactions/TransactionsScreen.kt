@@ -54,7 +54,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.tracey.vaulthaven.R
 import com.tracey.vaulthaven.navigation.ROUT_HOME
+import com.tracey.vaulthaven.navigation.ROUT_PROFILE
 import com.tracey.vaulthaven.navigation.ROUT_TRANSACTIONS
+import com.tracey.vaulthaven.navigation.ROUT_UTILITIES
 import com.tracey.vaulthaven.ui.theme.Bblue
 import com.tracey.vaulthaven.ui.theme.Dblue
 
@@ -78,6 +80,7 @@ fun TransactionsScreen(navController: NavController){
         //TopBar
         topBar = {
 
+
         },
 
         //BottomBar
@@ -90,8 +93,8 @@ fun TransactionsScreen(navController: NavController){
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = "",tint = Color.White) },
                     label = { Text("Home", color = Color.White) },
-                    selected = selectedIndex == 0,
-                    onClick = { selectedIndex = 0
+                    selected = selectedIndex == 1,
+                    onClick = { selectedIndex = 1
                         //navController.navigate(ROUT_HOME)
                         navController.navigate(ROUT_HOME)
                     },
@@ -103,8 +106,8 @@ fun TransactionsScreen(navController: NavController){
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.DateRange, contentDescription = "",tint = Color.White) },
                     label = { Text("Transactions", color = Color.White) },
-                    selected = selectedIndex == 1,
-                    onClick = { selectedIndex = 1
+                    selected = selectedIndex == 0,
+                    onClick = { selectedIndex = 0
                         // navController.navigate(ROUT_HOME)
                         navController.navigate(ROUT_TRANSACTIONS)
 
@@ -119,6 +122,8 @@ fun TransactionsScreen(navController: NavController){
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
                         //  navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_PROFILE)
+
                     },
                     colors = NavigationBarItemDefaults.colors(
                         indicatorColor = Bblue
@@ -130,6 +135,8 @@ fun TransactionsScreen(navController: NavController){
                     selected = selectedIndex == 3,
                     onClick = { selectedIndex = 3
                         //  navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_UTILITIES)
+
                     },
                     colors = NavigationBarItemDefaults.colors(
                         indicatorColor = Bblue
@@ -193,7 +200,7 @@ fun TransactionsScreen(navController: NavController){
                         Text(
                             text = "Balance",
                             fontSize = 18.sp,
-                            modifier = Modifier.padding(start = 10.dp, top = 5.dp),
+                            modifier = Modifier.padding(start = 150.dp, top = 5.dp),
                             color = Color.White
 
                         )
@@ -202,9 +209,9 @@ fun TransactionsScreen(navController: NavController){
 
                         Text(
                             text = "ksh.54378",
-                            fontSize = 25.sp,
+                            fontSize = 20.sp,
                             fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(start = 10.dp),
+                            modifier = Modifier.padding(start = 150.dp),
                             color = Color.White
 
                         )
@@ -221,7 +228,7 @@ fun TransactionsScreen(navController: NavController){
                             onClick = {},
                             modifier = Modifier.width(170.dp).height(40.dp),
                             elevation = CardDefaults.elevatedCardElevation(5.dp),
-                            colors = CardDefaults.cardColors(Bblue),
+                            colors = CardDefaults.cardColors(Color.White),
 
 
                         ) {
@@ -258,7 +265,7 @@ fun TransactionsScreen(navController: NavController){
                             onClick = {},
                             modifier = Modifier.width(170.dp).height(40.dp),
                             elevation = CardDefaults.elevatedCardElevation(5.dp),
-                            colors = CardDefaults.cardColors(Bblue),
+                            colors = CardDefaults.cardColors(Color.White),
 
 
                             ) {
@@ -311,7 +318,7 @@ fun TransactionsScreen(navController: NavController){
                 ) {
                         Text(
                             text = "Transaction History",
-                            fontSize = 25.sp,
+                            fontSize = 20.sp,
                             fontWeight = FontWeight.Bold,
                             modifier = Modifier.padding(start = 10.dp, top = 5.dp),
                             color = Color.Black
@@ -330,7 +337,7 @@ fun TransactionsScreen(navController: NavController){
                         placeholder = { Text(text = "Search Transaction ... ") },
                         colors = OutlinedTextFieldDefaults.colors(
                             unfocusedBorderColor = Dblue,
-                            focusedBorderColor = Color.Blue
+                            focusedBorderColor = Dblue
 
                         )
                     )
@@ -352,7 +359,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Chicken Inn",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -396,7 +403,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Spotify",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -440,7 +447,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Netflix",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -484,7 +491,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -527,7 +534,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -570,51 +577,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color.Black
-
-                                )
-                                Spacer(modifier = Modifier.height(5.dp))
-
-                                Text(
-                                    text = "Today, at 10:31 AM",
-                                    fontSize = 15.sp,
-                                    color = Color.Black
-
-                                )
-
-                            }
-                            Spacer(modifier = Modifier.width(100.dp))
-
-                            Text(
-                                text = "ksh.1800",
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.Black
-
-                            )
-
-
-                        }
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        Row(
-
-                        ) {
-                            Image(
-                                painter = painterResource(R.drawable.tlogo),
-                                contentDescription = "shoe",
-                                modifier = Modifier.width(25.dp).height(25.dp)
-                                    .padding(top = 5.dp),
-                            )
-                            Spacer(modifier = Modifier.width(10.dp))
-
-                            Column() {
-                                Text(
-                                    text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -658,7 +621,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -702,7 +665,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -746,7 +709,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -790,7 +753,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -834,7 +797,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -878,7 +841,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -922,7 +885,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -966,7 +929,7 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 
@@ -1010,7 +973,51 @@ fun TransactionsScreen(navController: NavController){
                             Column() {
                                 Text(
                                     text = "Tracey Wanjiku",
-                                    fontSize = 20.sp,
+                                    fontSize = 18.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black
+
+                                )
+                                Spacer(modifier = Modifier.height(5.dp))
+
+                                Text(
+                                    text = "Today, at 10:31 AM",
+                                    fontSize = 15.sp,
+                                    color = Color.Black
+
+                                )
+
+                            }
+                            Spacer(modifier = Modifier.width(100.dp))
+
+                            Text(
+                                text = "ksh.1800",
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.Black
+
+                            )
+
+
+                        }
+
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Row(
+
+                        ) {
+                            Image(
+                                painter = painterResource(R.drawable.tlogo),
+                                contentDescription = "shoe",
+                                modifier = Modifier.width(25.dp).height(25.dp)
+                                    .padding(top = 5.dp),
+                            )
+                            Spacer(modifier = Modifier.width(10.dp))
+
+                            Column() {
+                                Text(
+                                    text = "Tracey Wanjiku",
+                                    fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.Black
 

@@ -64,8 +64,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.tracey.vaulthaven.R
+import com.tracey.vaulthaven.navigation.ROUT_BUDGET
+import com.tracey.vaulthaven.navigation.ROUT_HOME
 import com.tracey.vaulthaven.navigation.ROUT_LOGIN
+import com.tracey.vaulthaven.navigation.ROUT_PROFILE
 import com.tracey.vaulthaven.navigation.ROUT_TRANSACTIONS
+import com.tracey.vaulthaven.navigation.ROUT_UTILITIES
 import com.tracey.vaulthaven.ui.theme.Bblue
 import com.tracey.vaulthaven.ui.theme.Dblue
 import com.tracey.vaulthaven.ui.theme.whiter
@@ -120,6 +124,7 @@ fun HomeScreen(navController: NavController){
                     selected = selectedIndex == 0,
                     onClick = { selectedIndex = 0
                         //navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_HOME)
                     },
                     colors = NavigationBarItemDefaults.colors(
                         indicatorColor = Bblue
@@ -132,6 +137,8 @@ fun HomeScreen(navController: NavController){
                     selected = selectedIndex == 1,
                     onClick = { selectedIndex = 1
                         // navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_TRANSACTIONS)
+
                     },
                     colors = NavigationBarItemDefaults.colors(
                         indicatorColor = Bblue
@@ -143,6 +150,8 @@ fun HomeScreen(navController: NavController){
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
                         //  navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_PROFILE)
+
                     },
                     colors = NavigationBarItemDefaults.colors(
                         indicatorColor = Bblue
@@ -154,6 +163,8 @@ fun HomeScreen(navController: NavController){
                     selected = selectedIndex == 3,
                     onClick = { selectedIndex = 3
                         //  navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_UTILITIES)
+
                     },
                     colors = NavigationBarItemDefaults.colors(
                         indicatorColor = Bblue
@@ -166,7 +177,9 @@ fun HomeScreen(navController: NavController){
         //FloatingActionButton
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { /* Add action */ },
+                onClick = { /* Add action */
+                    navController.navigate(ROUT_BUDGET)
+                },
                 containerColor = Dblue,
                 shape = CircleShape,
                 modifier = Modifier.offset(y = 40.dp),
@@ -305,7 +318,7 @@ fun HomeScreen(navController: NavController){
                         }
                         Text(
                             text = " Send",
-                            fontSize = 18.sp,
+                            fontSize = 15.sp,
                             modifier = Modifier.padding(start = 25.dp, top = 10.dp),
                             color = Color.Black
 
@@ -334,7 +347,7 @@ fun HomeScreen(navController: NavController){
                         }
                         Text(
                             text = "Withdraw",
-                            fontSize = 18.sp,
+                            fontSize = 15.sp,
                             modifier = Modifier.padding(start = 25.dp, top = 10.dp),
                             color = Color.Black
 
@@ -362,7 +375,7 @@ fun HomeScreen(navController: NavController){
                         }
                         Text(
                             text = "Top up",
-                            fontSize = 18.sp,
+                            fontSize = 15.sp,
                             modifier = Modifier.padding(start = 25.dp, top = 10.dp),
                             color = Color.Black
 
@@ -387,7 +400,7 @@ fun HomeScreen(navController: NavController){
                         }
                         Text(
                             text = "Pay",
-                            fontSize = 18.sp,
+                            fontSize = 15.sp,
                             modifier = Modifier.padding(start = 25.dp, top = 10.dp),
                             color = Color.Black
 
@@ -495,7 +508,7 @@ fun HomeScreen(navController: NavController){
                                 ) {
                                     Text(
                                         text = "Recent Activity",
-                                        fontSize = 25.sp,
+                                        fontSize = 20.sp,
                                         fontWeight = FontWeight.Bold,
                                         modifier = Modifier.padding(start = 10.dp, top = 5.dp),
                                         color = Color.Black
@@ -524,7 +537,7 @@ fun HomeScreen(navController: NavController){
                                         Column() {
                                             Text(
                                                 text = "Chicken Inn",
-                                                fontSize = 20.sp,
+                                                fontSize = 18.sp,
                                                 fontWeight = FontWeight.Bold,
                                                 color = Color.Black
 
@@ -568,7 +581,7 @@ fun HomeScreen(navController: NavController){
                                         Column() {
                                             Text(
                                                 text = "Spotify",
-                                                fontSize = 20.sp,
+                                                fontSize = 18.sp,
                                                 fontWeight = FontWeight.Bold,
                                                 color = Color.Black
 
@@ -612,7 +625,7 @@ fun HomeScreen(navController: NavController){
                                         Column() {
                                             Text(
                                                 text = "Netflix",
-                                                fontSize = 20.sp,
+                                                fontSize = 18.sp,
                                                 fontWeight = FontWeight.Bold,
                                                 color = Color.Black
 
@@ -656,7 +669,7 @@ fun HomeScreen(navController: NavController){
                                         Column() {
                                             Text(
                                                 text = "Tracey Wanjiku",
-                                                fontSize = 20.sp,
+                                                fontSize = 18.sp,
                                                 fontWeight = FontWeight.Bold,
                                                 color = Color.Black
 
@@ -721,10 +734,10 @@ fun HomeScreen(navController: NavController){
 
     //End of scaffold
 
-
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
     HomeScreen(rememberNavController())
 }
+
 

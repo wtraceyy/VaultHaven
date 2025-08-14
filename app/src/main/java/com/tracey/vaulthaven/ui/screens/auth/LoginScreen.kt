@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.tracey.vaulthaven.R
+import com.tracey.vaulthaven.navigation.ROUT_DASHBOARD
 import com.tracey.vaulthaven.navigation.ROUT_HOME
 import com.tracey.vaulthaven.navigation.ROUT_LOGIN
 import com.tracey.vaulthaven.navigation.ROUT_REGISTER
@@ -56,10 +57,10 @@ fun LoginScreen(
                 Toast.makeText(context, "Invalid Credentials", Toast.LENGTH_SHORT).show()
             } else {
                 if (user.role == "Admin") {
-                    navController.navigate(ROUT_HOME) {
+                    navController.navigate(ROUT_DASHBOARD) {
                     }
                 } else {
-                    navController.navigate(ROUT_HOME) {
+                    navController.navigate(ROUT_DASHBOARD) {
                     }
                 }
             }

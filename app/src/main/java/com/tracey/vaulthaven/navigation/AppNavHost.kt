@@ -14,9 +14,13 @@ import com.tracey.vaulthaven.repository.UserRepository
 import com.tracey.vaulthaven.ui.screens.about.AboutScreen
 import com.tracey.vaulthaven.ui.screens.auth.LoginScreen
 import com.tracey.vaulthaven.ui.screens.auth.RegisterScreen
+import com.tracey.vaulthaven.ui.screens.budget.BudgetScreen
+import com.tracey.vaulthaven.ui.screens.dashboard.DashboardScreen
 import com.tracey.vaulthaven.ui.screens.home.HomeScreen
+import com.tracey.vaulthaven.ui.screens.profile.ProfileScreen
 import com.tracey.vaulthaven.ui.screens.splash.SplashScreen
 import com.tracey.vaulthaven.ui.screens.transactions.TransactionsScreen
+import com.tracey.vaulthaven.ui.screens.utilities.UtilitiesScreen
 import com.tracey.vaulthaven.viewmodel.AuthViewModel
 
 
@@ -25,7 +29,7 @@ import com.tracey.vaulthaven.viewmodel.AuthViewModel
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_DASHBOARD,
+    startDestination: String = ROUT_SPLASH,
 
 
     ) {
@@ -53,7 +57,16 @@ fun AppNavHost(
             TransactionsScreen(navController)
         }
         composable(ROUT_DASHBOARD) {
-            TransactionsScreen(navController)
+            DashboardScreen(navController)
+        }
+        composable(ROUT_UTILITIES) {
+            UtilitiesScreen(navController)
+        }
+        composable(ROUT_BUDGET) {
+            BudgetScreen(navController)
+        }
+        composable(ROUT_PROFILE) {
+            ProfileScreen(navController)
         }
 
         // Initialize Room Database and Repository for Authentication
