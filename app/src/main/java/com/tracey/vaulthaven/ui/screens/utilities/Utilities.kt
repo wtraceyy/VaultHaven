@@ -17,11 +17,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.CurrencyExchange
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Group
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Money
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Payment
 import androidx.compose.material.icons.filled.Subscriptions
@@ -29,6 +31,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -51,6 +54,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.tracey.vaulthaven.navigation.ROUT_BUDGET
 import com.tracey.vaulthaven.navigation.ROUT_HOME
 import com.tracey.vaulthaven.navigation.ROUT_PROFILE
 import com.tracey.vaulthaven.navigation.ROUT_TRANSACTIONS
@@ -72,9 +76,24 @@ fun UtilitiesScreen(navController: NavController){
     Scaffold(
         //TopBar
         topBar = {
+
             TopAppBar(
+
+                navigationIcon = {
+                    IconButton(onClick = {
+                        navController.navigate(ROUT_HOME)
+
+                    }) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "menu"
+                        )
+                    }
+                },
                 title = { Text("Utilities", color = Color.White) },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Dblue)
+
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Dblue ,navigationIconContentColor = Color.White,),
+
             )
 
         },
@@ -101,11 +120,24 @@ fun UtilitiesScreen(navController: NavController){
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.DateRange, contentDescription = "",tint = Color.White) },
-                    label = { Text("Transactions", color = Color.White) },
+                    label = { Text("Records", color = Color.White) },
                     selected = selectedIndex == 3,
                     onClick = { selectedIndex = 3
                         // navController.navigate(ROUT_HOME)
                         navController.navigate(ROUT_TRANSACTIONS)
+
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        indicatorColor = Bblue
+                    )
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Money, contentDescription = "",tint = Color.White) },
+                    label = { Text("Budget", color = Color.White) },
+                    selected = selectedIndex == 5,
+                    onClick = { selectedIndex = 5
+                        // navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_BUDGET)
 
                     },
                     colors = NavigationBarItemDefaults.colors(

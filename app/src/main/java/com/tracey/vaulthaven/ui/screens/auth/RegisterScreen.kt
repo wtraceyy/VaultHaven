@@ -57,7 +57,7 @@ fun RegisterScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = Brush.verticalGradient(colors = listOf(Dblue,Bblue,Dark))),
+            .background(brush = Brush.verticalGradient(colors = listOf(Dblue,Bblue,Dblue))),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

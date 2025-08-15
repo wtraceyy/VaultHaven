@@ -12,6 +12,8 @@ const val ROUT_DASHBOARD= "dashboard"
 const val ROUT_UTILITIES= "utilities"
 const val ROUT_BUDGET= "budget"
 const val ROUT_PROFILE= "profile"
+const val ROUT_EDITPROFILE= "editprofile"
+const val ROUT_NOTIFICATIONS= "notifications"
 
 
 

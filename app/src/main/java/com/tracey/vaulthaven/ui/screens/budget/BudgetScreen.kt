@@ -25,6 +25,7 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Money
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material.icons.filled.Notifications
@@ -69,6 +70,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.tracey.vaulthaven.navigation.ROUT_BUDGET
 import com.tracey.vaulthaven.navigation.ROUT_HOME
+import com.tracey.vaulthaven.navigation.ROUT_NOTIFICATIONS
+import com.tracey.vaulthaven.navigation.ROUT_PROFILE
 import com.tracey.vaulthaven.navigation.ROUT_TRANSACTIONS
 import com.tracey.vaulthaven.navigation.ROUT_UTILITIES
 import com.tracey.vaulthaven.ui.theme.Bblue
@@ -94,25 +97,19 @@ fun BudgetScreen(navController: NavController){
         topBar = {
             TopAppBar(
 
-                navigationIcon = {
-                    IconButton(onClick = {}) {
-                        Icon(
-                            imageVector = Icons.Default.Menu,
-                            contentDescription = "menu"
-                        )
-                    }
-                },
-                title = { Text("Hi Tracey") },
+                title = { Text("Hi Tracey,") },
 
                 colors = TopAppBarDefaults.topAppBarColors(
-                    titleContentColor = androidx.compose.ui.graphics.Color.Black,
+                    titleContentColor = androidx.compose.ui.graphics.Color.White,
                     navigationIconContentColor = androidx.compose.ui.graphics.Color.White,
                     actionIconContentColor = Color.White,
                     containerColor = Dblue
 
                     ),
                 actions = {
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = {
+                        navController.navigate(ROUT_NOTIFICATIONS)
+                    }) {
                         Icon(
                             imageVector = Icons.Default.Notifications,
                             contentDescription = "Notify"
@@ -149,7 +146,7 @@ fun BudgetScreen(navController: NavController){
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.DateRange, contentDescription = "",tint = Color.White) },
-                    label = { Text("Transactions", color = Color.White) },
+                    label = { Text("Records", color = Color.White) },
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
                         // navController.navigate(ROUT_HOME)
@@ -161,12 +158,25 @@ fun BudgetScreen(navController: NavController){
                     )
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.List, contentDescription = "Profile",tint = Color.White) },
+                    icon = { Icon(Icons.Default.Money, contentDescription = "",tint = Color.White) },
                     label = { Text("Budget", color = Color.White) },
                     selected = selectedIndex == 0,
                     onClick = { selectedIndex = 0
-                        //  navController.navigate(ROUT_HOME)
+                        // navController.navigate(ROUT_HOME)
                         navController.navigate(ROUT_BUDGET)
+
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        indicatorColor = Bblue
+                    )
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.AccountCircle, contentDescription = "Profile",tint = Color.White) },
+                    label = { Text("Profile", color = Color.White) },
+                    selected = selectedIndex == 5,
+                    onClick = { selectedIndex = 5
+                        //  navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_PROFILE)
 
                     },
                     colors = NavigationBarItemDefaults.colors(
@@ -266,7 +276,7 @@ fun BudgetScreen(navController: NavController){
                         Text("Budget Notifications", style = MaterialTheme.typography.titleMedium)
                         Text("You will be notified when nearing or exceeding your budget", color = Color.Gray)
                         AssistChip(
-                            onClick = {},
+                            onClick = {navController.navigate(ROUT_NOTIFICATIONS)},
                             label = { Text("Enabled", color = Color.Black) },
                             leadingIcon = {
                                 Icon(Icons.Default.Notifications, contentDescription = null, tint = Dblue)

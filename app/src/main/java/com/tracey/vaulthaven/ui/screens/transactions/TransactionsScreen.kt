@@ -19,6 +19,7 @@ import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Money
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -53,6 +54,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.tracey.vaulthaven.R
+import com.tracey.vaulthaven.navigation.ROUT_BUDGET
 import com.tracey.vaulthaven.navigation.ROUT_HOME
 import com.tracey.vaulthaven.navigation.ROUT_PROFILE
 import com.tracey.vaulthaven.navigation.ROUT_TRANSACTIONS
@@ -105,11 +107,24 @@ fun TransactionsScreen(navController: NavController){
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.DateRange, contentDescription = "",tint = Color.White) },
-                    label = { Text("Transactions", color = Color.White) },
+                    label = { Text("Records", color = Color.White) },
                     selected = selectedIndex == 0,
                     onClick = { selectedIndex = 0
                         // navController.navigate(ROUT_HOME)
                         navController.navigate(ROUT_TRANSACTIONS)
+
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        indicatorColor = Bblue
+                    )
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Money, contentDescription = "",tint = Color.White) },
+                    label = { Text("Budget", color = Color.White) },
+                    selected = selectedIndex == 5,
+                    onClick = { selectedIndex = 5
+                        // navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_BUDGET)
 
                     },
                     colors = NavigationBarItemDefaults.colors(
@@ -228,7 +243,7 @@ fun TransactionsScreen(navController: NavController){
                             onClick = {},
                             modifier = Modifier.width(170.dp).height(40.dp),
                             elevation = CardDefaults.elevatedCardElevation(5.dp),
-                            colors = CardDefaults.cardColors(Color.White),
+                            colors = CardDefaults.cardColors((Color(0xFFF8F8F8))),
 
 
                         ) {
@@ -265,7 +280,7 @@ fun TransactionsScreen(navController: NavController){
                             onClick = {},
                             modifier = Modifier.width(170.dp).height(40.dp),
                             elevation = CardDefaults.elevatedCardElevation(5.dp),
-                            colors = CardDefaults.cardColors(Color.White),
+                            colors = CardDefaults.cardColors((Color(0xFFF8F8F8))),
 
 
                             ) {
@@ -314,7 +329,7 @@ fun TransactionsScreen(navController: NavController){
                     shape = RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp),
                     elevation = CardDefaults.elevatedCardElevation(5.dp),
                     //colors = CardDefaults.cardColors(Teal)
-                    colors = CardDefaults.cardColors(Color.White)
+                    colors = CardDefaults.cardColors((Color(0xFFF8F8F8)))
                 ) {
                         Text(
                             text = "Transaction History",

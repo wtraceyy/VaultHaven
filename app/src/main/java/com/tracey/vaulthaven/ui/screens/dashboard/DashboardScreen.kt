@@ -50,6 +50,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.tracey.vaulthaven.navigation.ROUT_BUDGET
 import com.tracey.vaulthaven.navigation.ROUT_HOME
 import com.tracey.vaulthaven.navigation.ROUT_TRANSACTIONS
 import com.tracey.vaulthaven.ui.theme.Bblue
@@ -64,7 +65,21 @@ fun DashboardScreen(navController: NavController) {
  ) {
          //TopAppBar
          TopAppBar(
+
+             navigationIcon = {
+                 IconButton(onClick = {
+                     navController.navigate(ROUT_HOME)
+
+                 }) {
+                     Icon(
+                         imageVector = Icons.Default.ArrowBack,
+                         contentDescription = "menu"
+                     )
+                 }
+             },
+
              title = { Text(text = "DASHBOARD") },
+
              colors = TopAppBarDefaults.topAppBarColors(
                  containerColor = Dblue,
                  titleContentColor = Color.White,
@@ -74,7 +89,7 @@ fun DashboardScreen(navController: NavController) {
              actions = {
 
                  IconButton(onClick = {
-                     navController.navigate(ROUT_HOME)
+                     navController.navigate(ROUT_BUDGET)
 
                  }) {
                      Icon(
@@ -100,14 +115,14 @@ fun DashboardScreen(navController: NavController) {
              SmallStatCard(
 
                  title = "Total Transactions",
-                 value = "152",
+                 value = "1248",
                  modifier = Modifier
                      .weight(1f)
                      .height(120.dp)
              )
              SmallStatCard(
                  title = "Saving Progress",
-                 value = "60 %",
+                 value = "47%",
                  modifier = Modifier
                      .weight(1f)
                      .height(120.dp)
@@ -135,7 +150,7 @@ fun DashboardScreen(navController: NavController) {
                      trackColor = Bblue
                  )
                  Spacer(modifier = Modifier.height(4.dp))
-                 Text("65% of your monthly budget used")
+                 Text("75% of your monthly budget used")
              }
          }
 

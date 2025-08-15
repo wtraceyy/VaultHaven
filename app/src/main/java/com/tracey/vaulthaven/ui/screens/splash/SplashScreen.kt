@@ -19,6 +19,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -37,6 +38,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.tracey.vaulthaven.R
 import com.tracey.vaulthaven.navigation.ROUT_LOGIN
 import com.tracey.vaulthaven.ui.theme.Bblue
+import com.tracey.vaulthaven.ui.theme.Dark
 import com.tracey.vaulthaven.ui.theme.Dblue
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -54,7 +56,9 @@ fun SplashScreen(navController: NavController){
 
 
     Column(
-        modifier = Modifier.background(color = Bblue)
+        modifier = Modifier.background(brush = Brush.verticalGradient(colors = listOf(Dblue,Bblue,Dblue)
+        )
+                )
                            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

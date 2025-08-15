@@ -17,6 +17,8 @@ import com.tracey.vaulthaven.ui.screens.auth.RegisterScreen
 import com.tracey.vaulthaven.ui.screens.budget.BudgetScreen
 import com.tracey.vaulthaven.ui.screens.dashboard.DashboardScreen
 import com.tracey.vaulthaven.ui.screens.home.HomeScreen
+import com.tracey.vaulthaven.ui.screens.notifications.NotificationsScreen
+import com.tracey.vaulthaven.ui.screens.profile.EditProfileScreen
 import com.tracey.vaulthaven.ui.screens.profile.ProfileScreen
 import com.tracey.vaulthaven.ui.screens.splash.SplashScreen
 import com.tracey.vaulthaven.ui.screens.transactions.TransactionsScreen
@@ -29,7 +31,7 @@ import com.tracey.vaulthaven.viewmodel.AuthViewModel
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_SPLASH,
+    startDestination: String = ROUT_SPLASH
 
 
     ) {
@@ -46,7 +48,6 @@ fun AppNavHost(
         composable(ROUT_HOME) {
             HomeScreen(navController)
         }
-
         composable(ROUT_SPLASH) {
             SplashScreen(navController)
         }
@@ -67,6 +68,12 @@ fun AppNavHost(
         }
         composable(ROUT_PROFILE) {
             ProfileScreen(navController)
+        }
+        composable(ROUT_EDITPROFILE) {
+            EditProfileScreen(navController)
+        }
+        composable(ROUT_NOTIFICATIONS) {
+            NotificationsScreen(navController)
         }
 
         // Initialize Room Database and Repository for Authentication

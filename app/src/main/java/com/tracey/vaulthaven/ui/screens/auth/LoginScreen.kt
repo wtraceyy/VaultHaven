@@ -71,7 +71,7 @@ fun LoginScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = Brush.verticalGradient(colors = listOf(Dblue,Bblue,Dark)
+            .background(brush = Brush.verticalGradient(colors = listOf(Dblue,Bblue,Dblue)
             )
             )
 

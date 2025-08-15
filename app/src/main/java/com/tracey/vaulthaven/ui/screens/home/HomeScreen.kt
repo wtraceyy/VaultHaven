@@ -21,11 +21,14 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.AttachMoney
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Money
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
@@ -64,7 +67,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.tracey.vaulthaven.R
+import com.tracey.vaulthaven.navigation.ROUT_ABOUT
 import com.tracey.vaulthaven.navigation.ROUT_BUDGET
+import com.tracey.vaulthaven.navigation.ROUT_DASHBOARD
 import com.tracey.vaulthaven.navigation.ROUT_HOME
 import com.tracey.vaulthaven.navigation.ROUT_LOGIN
 import com.tracey.vaulthaven.navigation.ROUT_PROFILE
@@ -88,18 +93,22 @@ fun HomeScreen(navController: NavController){
         //TopBar
         topBar = {
             TopAppBar(
-                title = { Text("Hi Tracey") },
+                title = { Text("Hi Tracey,") },
 
                 colors = TopAppBarDefaults.topAppBarColors(
-                    titleContentColor = androidx.compose.ui.graphics.Color.Black,
-                    navigationIconContentColor = androidx.compose.ui.graphics.Color.White,
-                    actionIconContentColor = Color.Black,
+                    titleContentColor = Color.White,
+                    navigationIconContentColor =Color.White,
+                    actionIconContentColor = Color.White,
+                    containerColor = Dblue
+
 
                 ),
                 actions = {
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = {
+                        navController.navigate(ROUT_ABOUT)
+                    }) {
                         Icon(
-                            imageVector = Icons.Default.Notifications,
+                            imageVector = Icons.Default.ArrowForward,
                             contentDescription = "Notify"
                         )
                     }
@@ -133,11 +142,24 @@ fun HomeScreen(navController: NavController){
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.DateRange, contentDescription = "",tint = Color.White) },
-                    label = { Text("Transactions", color = Color.White) },
+                    label = { Text("Records", color = Color.White) },
                     selected = selectedIndex == 1,
                     onClick = { selectedIndex = 1
                         // navController.navigate(ROUT_HOME)
                         navController.navigate(ROUT_TRANSACTIONS)
+
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        indicatorColor = Bblue
+                    )
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Money, contentDescription = "",tint = Color.White) },
+                    label = { Text("Budget", color = Color.White) },
+                    selected = selectedIndex == 5,
+                    onClick = { selectedIndex = 5
+                        // navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_BUDGET)
 
                     },
                     colors = NavigationBarItemDefaults.colors(
@@ -178,16 +200,16 @@ fun HomeScreen(navController: NavController){
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { /* Add action */
-                    navController.navigate(ROUT_BUDGET)
+                    navController.navigate(ROUT_DASHBOARD)
                 },
                 containerColor = Dblue,
                 shape = CircleShape,
-                modifier = Modifier.offset(y = 40.dp),
+
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add")
             }
         },
-        floatingActionButtonPosition = FabPosition.Center,
+
 
         //Main Contents of the page
         content = { paddingValues ->
@@ -209,7 +231,7 @@ fun HomeScreen(navController: NavController){
                         modifier = Modifier.fillMaxWidth().height(150.dp).padding(start = 20.dp, end = 20.dp),
                         elevation = CardDefaults.elevatedCardElevation(5.dp),
                         //colors = CardDefaults.cardColors(Teal)
-                        colors = CardDefaults.cardColors(Dblue)
+                        colors = CardDefaults.cardColors((Color(0xFFF8F8F8)))
                     ) {
                         Column(
 
@@ -219,7 +241,7 @@ fun HomeScreen(navController: NavController){
                                 text = " Account balance ",
                                 fontSize = 18.sp,
                                 modifier = Modifier.padding(start = 90.dp, top = 20.dp),
-                                color = Color.White
+                                color = Color.Black
 
 
                             )
@@ -230,7 +252,7 @@ fun HomeScreen(navController: NavController){
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.padding(start = 100.dp),
-                                color = Color.White
+                                color = Color.Black
 
 
                             )
@@ -245,14 +267,14 @@ fun HomeScreen(navController: NavController){
                                     Text(
                                         text = "Number",
                                         fontSize = 15.sp,
-                                        color = Color.White
+                                        color = Color.Black
                                         
                                     )
                                     Text(
                                         text = "****2415",
                                         fontSize = 15.sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = Color.White
+                                        color = Color.Black
 
 
                                     )
@@ -265,14 +287,14 @@ fun HomeScreen(navController: NavController){
                                     Text(
                                         text = "Exp",
                                         fontSize = 15.sp,
-                                        color = Color.White
+                                        color = Color.Black
 
                                     )
                                     Text(
                                         text = "12/30",
                                         fontSize = 15.sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = Color.White,
+                                        color = Color.Black,
 
                                     )
 
@@ -499,7 +521,7 @@ fun HomeScreen(navController: NavController){
                                 modifier = Modifier.fillMaxSize(),
                                 elevation = CardDefaults.elevatedCardElevation(5.dp),
                                 //colors = CardDefaults.cardColors(Teal)
-                                colors = CardDefaults.cardColors(Color.White),
+                                colors = CardDefaults.cardColors((Color(0xFFF8F8F8))),
                                 shape = RectangleShape
 
                             ) {
