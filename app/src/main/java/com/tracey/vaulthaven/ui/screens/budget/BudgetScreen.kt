@@ -22,13 +22,10 @@ import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.DirectionsCar
 import androidx.compose.material.icons.filled.Fastfood
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Money
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.Save
 import androidx.compose.material.icons.filled.Savings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.AssistChip
@@ -56,19 +53,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Canvas
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.PaintingStyle.Companion.Stroke
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.tracey.vaulthaven.navigation.ROUT_BUDGET
+import com.tracey.vaulthaven.navigation.ROUT_GOALS
 import com.tracey.vaulthaven.navigation.ROUT_HOME
 import com.tracey.vaulthaven.navigation.ROUT_NOTIFICATIONS
 import com.tracey.vaulthaven.navigation.ROUT_PROFILE
@@ -100,8 +95,8 @@ fun BudgetScreen(navController: NavController){
                 title = { Text("Hi Tracey,") },
 
                 colors = TopAppBarDefaults.topAppBarColors(
-                    titleContentColor = androidx.compose.ui.graphics.Color.White,
-                    navigationIconContentColor = androidx.compose.ui.graphics.Color.White,
+                    titleContentColor = Color.White,
+                    navigationIconContentColor = Color.White,
                     actionIconContentColor = Color.White,
                     containerColor = Dblue
 
@@ -225,10 +220,10 @@ fun BudgetScreen(navController: NavController){
                         Text("Saving Goals", style = MaterialTheme.typography.titleMedium)
                         Text("Add or view your saving goals", color = Color.Gray)
                         Button(
-                            onClick = {},
+                            onClick = {navController.navigate(ROUT_GOALS)},
                             colors = ButtonDefaults.buttonColors(containerColor = Dblue)
                         ) {
-                            Icon(Icons.Default.Savings, contentDescription = null, tint = Color.White)
+                            Icon(Icons.Default.Save, contentDescription = null, tint = Color.White)
                             Spacer(Modifier.width(8.dp))
                             Text("Manage Goals", color = Color.White)
                         }

@@ -16,6 +16,8 @@ import com.tracey.vaulthaven.ui.screens.auth.LoginScreen
 import com.tracey.vaulthaven.ui.screens.auth.RegisterScreen
 import com.tracey.vaulthaven.ui.screens.budget.BudgetScreen
 import com.tracey.vaulthaven.ui.screens.dashboard.DashboardScreen
+import com.tracey.vaulthaven.ui.screens.goals.AddGoalsScreen
+import com.tracey.vaulthaven.ui.screens.goals.GoalsScreen
 import com.tracey.vaulthaven.ui.screens.home.HomeScreen
 import com.tracey.vaulthaven.ui.screens.notifications.NotificationsScreen
 import com.tracey.vaulthaven.ui.screens.profile.EditProfileScreen
@@ -75,6 +77,25 @@ fun AppNavHost(
         composable(ROUT_NOTIFICATIONS) {
             NotificationsScreen(navController)
         }
+        composable(ROUT_GOALS) {
+            GoalsScreen(navController)
+        }
+        composable(ROUT_ADDGOALS) {
+            AddGoalsScreen(
+                onBack = {navController.navigate(ROUT_GOALS)},
+
+
+            )  {
+
+            }
+        }
+
+
+
+
+
+
+
 
         // Initialize Room Database and Repository for Authentication
         val appDatabase = UserDatabase.getDatabase(context)
@@ -109,5 +130,10 @@ fun AppNavHost(
 
 
     }
+}
+
+@Composable
+fun AddGoalsScreen(x0: NavHostController, onBack: () -> Boolean, onSave: () -> Boolean) {
+    TODO("Not yet implemented")
 }
 

@@ -14,6 +14,8 @@ const val ROUT_BUDGET= "budget"
 const val ROUT_PROFILE= "profile"
 const val ROUT_EDITPROFILE= "editprofile"
 const val ROUT_NOTIFICATIONS= "notifications"
+const val ROUT_GOALS= "goals"
+const val ROUT_ADDGOALS= "addgoals"
 
 
 

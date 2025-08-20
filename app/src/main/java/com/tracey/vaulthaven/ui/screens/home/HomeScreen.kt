@@ -87,7 +87,7 @@ fun HomeScreen(navController: NavController){
 
     //Scaffold
 
-    var selectedIndex by remember { mutableStateOf(0) }
+   var selectedIndex by remember { mutableStateOf(0) }
 
     Scaffold(
         //TopBar
@@ -105,7 +105,7 @@ fun HomeScreen(navController: NavController){
                 ),
                 actions = {
                     IconButton(onClick = {
-                        navController.navigate(ROUT_ABOUT)
+                        navController.navigate(ROUT_DASHBOARD)
                     }) {
                         Icon(
                             imageVector = Icons.Default.ArrowForward,
@@ -206,7 +206,7 @@ fun HomeScreen(navController: NavController){
                 shape = CircleShape,
 
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Add")
+                Icon(Icons.Default.Add, contentDescription = "Add" , tint = Color.White)
             }
         },
 
@@ -231,7 +231,7 @@ fun HomeScreen(navController: NavController){
                         modifier = Modifier.fillMaxWidth().height(150.dp).padding(start = 20.dp, end = 20.dp),
                         elevation = CardDefaults.elevatedCardElevation(5.dp),
                         //colors = CardDefaults.cardColors(Teal)
-                        colors = CardDefaults.cardColors((Color(0xFFF8F8F8)))
+                        colors = CardDefaults.cardColors(Color.Transparent)
                     ) {
                         Column(
 

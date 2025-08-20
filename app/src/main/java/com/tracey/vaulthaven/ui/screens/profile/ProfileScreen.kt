@@ -1,5 +1,7 @@
 package com.tracey.vaulthaven.ui.screens.profile
 
+
+import android.R.attr.icon
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -31,6 +33,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
@@ -57,9 +60,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.tracey.vaulthaven.R
+import com.tracey.vaulthaven.navigation.ROUT_ABOUT
 import com.tracey.vaulthaven.navigation.ROUT_BUDGET
 import com.tracey.vaulthaven.navigation.ROUT_EDITPROFILE
 import com.tracey.vaulthaven.navigation.ROUT_HOME
+import com.tracey.vaulthaven.navigation.ROUT_LOGIN
 import com.tracey.vaulthaven.navigation.ROUT_PROFILE
 import com.tracey.vaulthaven.navigation.ROUT_TRANSACTIONS
 import com.tracey.vaulthaven.navigation.ROUT_UTILITIES
@@ -158,12 +163,12 @@ fun ProfileScreen(navController: NavController) {
         },//end of bb
 
 
-        content = { paddingValues ->
+        content = { PaddingValues ->
 
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .verticalScroll(rememberScrollState()) // Scrollable
+                    .verticalScroll(rememberScrollState())
                     .background(Color(0xFFF8F8F8))
             ) {
                 // Header
@@ -178,6 +183,14 @@ fun ProfileScreen(navController: NavController) {
                         ),
                     contentAlignment = Alignment.Center
                 ) {
+                    IconButton(onClick = {})
+                          {
+                              
+
+
+
+                    }
+
                     Box(
                         modifier = Modifier
                             .size(120.dp)
@@ -249,7 +262,7 @@ fun ProfileScreen(navController: NavController) {
                 Spacer(Modifier.height(30.dp))
 
                 // Settings Section (same page)
-                SettingsCard()
+                SettingsCard(navController)
                 Spacer(Modifier.height(30.dp))
             }
         }
@@ -283,7 +296,7 @@ fun StatCard(title: String, value: String) {
 }
 
 @Composable
-fun SettingsCard() {
+fun SettingsCard(navController: NavController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -292,13 +305,17 @@ fun SettingsCard() {
         elevation = CardDefaults.cardElevation(6.dp)
     ) {
         Column {
-            SettingItem("Clear Cache") { /* Handle click */ }
+            SettingItem("About VaultHaven") { /* Handle click */navController.navigate(ROUT_ABOUT) }
             Divider()
             SettingItem("Clear History") { /* Handle click */ }
             Divider()
-            SettingItem("Languages") { /* Handle click */ }
-            Divider()
-            SettingItem("Log Out", textColor = Color.Red) { /* Handle click */ }
+            SettingItem("Log Out", textColor = Color.Red) { /* Handle click */ navController.navigate(
+                ROUT_LOGIN
+            )
+
+
+
+            }
         }
     }
 }

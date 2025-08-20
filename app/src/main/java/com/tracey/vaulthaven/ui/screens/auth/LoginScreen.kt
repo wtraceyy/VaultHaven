@@ -57,10 +57,10 @@ fun LoginScreen(
                 Toast.makeText(context, "Invalid Credentials", Toast.LENGTH_SHORT).show()
             } else {
                 if (user.role == "Admin") {
-                    navController.navigate(ROUT_DASHBOARD) {
+                    navController.navigate(ROUT_HOME) {
                     }
                 } else {
-                    navController.navigate(ROUT_DASHBOARD) {
+                    navController.navigate(ROUT_HOME) {
                     }
                 }
             }
@@ -174,7 +174,6 @@ fun LoginScreen(
                         } else {
                             authViewModel.loginUser(email, password)
                         }
-                        navController.navigate(ROUT_HOME)
                     },
                     modifier = Modifier.fillMaxSize(),
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),

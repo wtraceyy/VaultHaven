@@ -142,7 +142,7 @@ fun EditProfileScreen(navController: NavController) {
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Button(
-                onClick = { /* Save changes */ },
+                onClick = { /* Save changes */navController.navigate(ROUT_PROFILE)  },
                 modifier = Modifier.weight(1f),
                 colors = ButtonDefaults.buttonColors(Dblue)
             ) {
